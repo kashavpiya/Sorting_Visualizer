@@ -2,8 +2,8 @@ from tkinter import *
 from tkinter import ttk
 import random
 from colors import *
-from algorithms.bubbleSort import bubble_sort
-from algorithms.mergeSort import merge_sort
+from algorithms.bubbleSort import bubbleSort
+from algorithms.mergeSort import mergeSort
 
 #Creating a window from the entire program
 window = Tk()
@@ -66,10 +66,11 @@ def sort():
     timeTick = set_speed()
 
     if algo_menu.get() == 'Bubble Sort':
-        bubble_sort(data, drawData, timeTick)
+        bubbleSort(data, drawData, timeTick)
 
     elif algo_menu.get() == 'Merge Sort':
-        merge_sort(data, 0, len(data)-1, drawData, timeTick)
+        mergeSort(data, 0, len(data)-1, drawData, timeTick)
+        
     
 
 UI_frame = Frame(window, width = 900, height = 300, bg = WHITE)

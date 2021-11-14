@@ -24,12 +24,17 @@ def merge(data, start, mid, end, drawData, timeTick):
         data[start] = tempArray[p]
         start += 1
 
-def merge_sort(data, start, end, drawData, timeTick):
+def mergeSort(data, start, end, drawData, timeTick):
     if start < end:
         mid = int((start + end) / 2)
-        merge_sort(data, start, mid, drawData, timeTick)
-        merge_sort(data, mid+1, end, drawData, timeTick)
 
+        #divide the first half
+        mergeSort(data, start, mid, drawData, timeTick)
+
+        #divide the second half
+        mergeSort(data, mid+1, end, drawData, timeTick)
+
+        #doing the comparison and combining (conquer)
         merge(data, start, mid, end, drawData, timeTick)
 
         drawData(data, [PURPLE if x >= start and x < mid else YELLOW if x == mid 
@@ -37,3 +42,4 @@ def merge_sort(data, start, end, drawData, timeTick):
         time.sleep(timeTick)
 
     drawData(data, [BLUE for x in range(len(data))])
+
