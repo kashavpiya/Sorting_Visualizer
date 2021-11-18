@@ -13,8 +13,8 @@ def bubbleSort(arr,  drawData, timeTick):
             # than the next element
             if arr[j] > arr[j+1] :
                 arr[j], arr[j+1] = arr[j+1], arr[j]
-                drawData(arr, [YELLOW if x==j or x== j +1 else BLUE for x in range (len(arr))])
+                drawData(arr, [RED if x==j or x== j +1 else MODERN for x in range (len(arr))])
                 time.sleep(timeTick)
-    drawData(arr, [BLUE for x in range(len(arr))])  
+    drawData(arr, [MODERN for x in range(len(arr))])  
         
     

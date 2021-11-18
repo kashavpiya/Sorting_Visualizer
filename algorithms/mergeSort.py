@@ -37,9 +37,9 @@ def mergeSort(data, start, end, drawData, timeTick):
         #doing the comparison and combining (conquer)
         merge(data, start, mid, end, drawData, timeTick)
 
-        drawData(data, [PURPLE if x >= start and x < mid else YELLOW if x == mid 
-                        else DARK_BLUE if x > mid and x <=end else BLUE for x in range(len(data))])
+        drawData(data, [RED if x >= start and x < mid else YELLOW if x == mid 
+                        else BLUE if x > mid and x <=end else MODERN for x in range(len(data))])
         time.sleep(timeTick)
 
-    drawData(data, [BLUE for x in range(len(data))])
+    drawData(data, [MODERN for x in range(len(data))])
 

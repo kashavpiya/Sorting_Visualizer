@@ -4,18 +4,20 @@ import random
 from colors import *
 from algorithms.bubbleSort import bubbleSort
 from algorithms.mergeSort import mergeSort
+from algorithms.selectionSort import selectionSort
+from algorithms.insersionSort import insertionSort
 
 #Creating a window from the entire program
 window = Tk()
 window.title("Kashav and Quinn's Sorting Algorithm Visualizer")
-window.maxsize(1000, 700)
-window.config(bg = WHITE)
+window.maxsize(1200, 800)
+window.config(bg = LIGHT_YELLOW)
 
 algorithm_name = StringVar()
-algo_list = ['Bubble Sort', 'Merge Sort']
+algo_list = ['Selection Sort', 'Insertion Sort', 'Bubble Sort', 'Merge Sort']
 
 speed_name = StringVar()
-speed_list = ['Fast', 'Medium', 'Slow']
+speed_list = ['5', '4', '3', '2', '1']
 
 data = []
 
@@ -48,13 +50,17 @@ def generate():
         random_value = random.randint(1, 150)
         data.append(random_value)
 
-    drawData(data, [BLUE for x in range(len(data))])
+    drawData(data, [MODERN for x in range(len(data))])
 
 #This function will set the speed of the visualization for sorting
 def set_speed():
-    if speed_menu.get() == 'Slow':
+    if speed_menu.get() == '1':
+        return 0.8
+    elif speed_menu.get() == '2':
+        return 0.5
+    elif speed_menu.get() == '3':
         return 0.3
-    elif speed_menu.get() == 'Medium':
+    elif speed_menu.get() == '4':
         return 0.1
     else:
         return 0.001
@@ -70,19 +76,25 @@ def sort():
 
     elif algo_menu.get() == 'Merge Sort':
         mergeSort(data, 0, len(data)-1, drawData, timeTick)
+    
+    elif algo_menu.get() == "Selection Sort":
+        selectionSort(data, drawData, timeTick)
+
+    elif algo_menu.get() == "Insertion Sort":
+        insertionSort(data, drawData, timeTick)
         
     
 
-UI_frame = Frame(window, width = 900, height = 300, bg = WHITE)
+UI_frame = Frame(window, width = 100, height = 400, bg = LIGHT_YELLOW)
 UI_frame.grid(row = 0, column = 0, padx = 10, pady = 5)
 
-l1 = Label(UI_frame, text = "Algorithm: ", bg=WHITE)
+l1 = Label(UI_frame, text = "Algorithm: ", bg=LIGHT_YELLOW)
 l1.grid(row = 0, column=0, padx=10, pady=5, sticky=W)
 algo_menu = ttk.Combobox(UI_frame, textvariable=algorithm_name, values=algo_list)
 algo_menu.grid(row = 0, column = 1, padx = 5, pady = 5)
 algo_menu.current(0)
 
-l2 = Label(UI_frame, text="Sorting Speed: ", bg=WHITE)
+l2 = Label(UI_frame, text="Sorting Speed: (1 is the slowest)", bg=LIGHT_YELLOW)
 l2.grid(row = 1, column= 0, padx = 10, pady =5, sticky=W)
 speed_menu = ttk.Combobox(UI_frame, textvariable=speed_name, values = speed_list)
 speed_menu.grid(row=1, column = 1, padx = 5, pady = 5)
