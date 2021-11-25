@@ -7,7 +7,7 @@ from algorithms.bubbleSort import bubbleSort
 from algorithms.mergeSort import mergeSort
 from algorithms.selectionSort import selectionSort
 from algorithms.insersionSort import insertionSort
-
+from algorithms.quickSort import quickSort
 #Creating a window from the entire program
 window = Tk()
 window.title("Kashav and Quinn's Sorting Algorithm Visualizer")
@@ -87,7 +87,7 @@ def sort():
     elif algo_menu.get() == "Heap Sort":
         heapSort(data, drawData, timer)
     else:
-        quickSort(data, 0, len(data) - 1, drawData, timer)
+        quickSort(data, 0, len(data)-1, drawData, timer)
     
 
 UI_frame = Frame(window, width = 400, height = 400, bg = LIGHT_YELLOW)
