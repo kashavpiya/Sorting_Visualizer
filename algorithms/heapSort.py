@@ -6,10 +6,10 @@ def heapify(arr, n, i, drawData, timer):
     left = 2 * i + 1
     right = 2 * i + 2
     
-    if left < n and arr[maximum] > arr[left]:
+    if left < n and arr[maximum] < arr[left]:
         maximum = left
         
-    if right < n and arr[maximum] > arr[right]:
+    if right < n and arr[maximum] < arr[right]:
         maximum = right
         
     if maximum != i:
