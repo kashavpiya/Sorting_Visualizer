@@ -18,7 +18,7 @@ def quickSort(arr, low, high, drawData, timer):
         quickSort(arr, low, pi -1, drawData, timer)
         quickSort(arr, pi + 1, high, drawData, timer)
 
-        drawData(arr, [PURPLE if x >= low and x < pi else YELLOW if x == pi else DARK_BLUE if x > pi and x<= high else MODERN for x in range(len(arr)) ])
+        drawData(arr, [RED if x >= low and x < pi else YELLOW if x == pi else DARK_BLUE if x > pi and x<= high else MODERN for x in range(len(arr)) ])
 
         time.sleep(timer)
 
