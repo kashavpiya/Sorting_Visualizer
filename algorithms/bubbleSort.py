@@ -1,7 +1,7 @@
 import time
 from colors import*
 
-def bubbleSort(arr,  drawData, timeTick):
+def bubbleSort(arr,  drawData, timer):
     n = len(arr)
     for i in range(n):
 
@@ -14,7 +14,7 @@ def bubbleSort(arr,  drawData, timeTick):
             if arr[j] > arr[j+1] :
                 arr[j], arr[j+1] = arr[j+1], arr[j]
                 drawData(arr, [RED if x==j or x== j +1 else MODERN for x in range (len(arr))])
-                time.sleep(timeTick)
+                time.sleep(timer)
     drawData(arr, [MODERN for x in range(len(arr))])  
         
     

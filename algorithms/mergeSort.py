@@ -1,7 +1,7 @@
 import time
 from colors import *
 
-def merge(data, start, mid, end, drawData, timeTick):
+def merge(data, start, mid, end, drawData, timer):
     p = start
     q = mid + 1
     tempArray = []
@@ -24,22 +24,22 @@ def merge(data, start, mid, end, drawData, timeTick):
         data[start] = tempArray[p]
         start += 1
 
-def mergeSort(data, start, end, drawData, timeTick):
+def mergeSort(data, start, end, drawData, timer):
     if start < end:
         mid = int((start + end) / 2)
 
         #divide the first half
-        mergeSort(data, start, mid, drawData, timeTick)
+        mergeSort(data, start, mid, drawData, timer)
 
         #divide the second half
-        mergeSort(data, mid+1, end, drawData, timeTick)
+        mergeSort(data, mid+1, end, drawData, timer)
 
         #doing the comparison and combining (conquer)
-        merge(data, start, mid, end, drawData, timeTick)
+        merge(data, start, mid, end, drawData, timer)
 
         drawData(data, [RED if x >= start and x < mid else YELLOW if x == mid 
                         else BLUE if x > mid and x <=end else MODERN for x in range(len(data))])
-        time.sleep(timeTick)
+        time.sleep(timer)
 
     drawData(data, [MODERN for x in range(len(data))])
 

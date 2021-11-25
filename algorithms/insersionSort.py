@@ -1,7 +1,7 @@
 import time
 from colors import *
 
-def insertionSort(data, drawData, timeTick):
+def insertionSort(data, drawData, timer):
     for i in range(len(data)):
         temp = data[i]
         k = i
@@ -10,6 +10,6 @@ def insertionSort(data, drawData, timeTick):
             k -= 1
         data[k] = temp
         drawData(data, [RED if x == k or x == i else MODERN for x in range(len(data))])
-        time.sleep(timeTick)
+        time.sleep(timer)
         
     drawData(data, [MODERN for x in range(len(data))])
