@@ -8,6 +8,8 @@ from algorithms.mergeSort import mergeSort
 from algorithms.selectionSort import selectionSort
 from algorithms.insersionSort import insertionSort
 from algorithms.quickSort import quickSort
+from algorithms.heapSort import heapSort
+
 #Creating a window from the entire program
 window = Tk()
 window.title("Kashav and Quinn's Sorting Algorithm Visualizer")
